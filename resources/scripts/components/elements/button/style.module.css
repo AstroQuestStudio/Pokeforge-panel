@@ -1,0 +1,136 @@
+.button {
+    @apply px-5 py-2.5 inline-flex items-center justify-center;
+    @apply rounded-lg text-base font-semibold transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent
+        );
+        transition: left 0.5s ease;
+    }
+
+    &:hover::before {
+        left: 100%;
+    }
+
+    &.small {
+        @apply px-4 py-1.5 text-sm font-medium rounded-md;
+    }
+
+    &.large {
+        @apply px-6 py-3 text-lg;
+    }
+
+    &.secondary {
+        background: transparent !important;
+    }
+
+    &:disabled {
+        @apply cursor-not-allowed opacity-60;
+    }
+
+    &.square {
+        @apply p-0 w-12 h-12;
+
+        &.small {
+            @apply w-9 h-9;
+        }
+    }
+}
+
+.primary {
+    background: linear-gradient(135deg, hsl(255, 75%, 55%) 0%, hsl(270, 70%, 50%) 100%);
+    color: hsl(220, 100%, 98%);
+    box-shadow: 0 4px 15px -3px hsla(255, 75%, 55%, 0.4);
+    @apply focus:ring-purple-400;
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(135deg, hsl(255, 80%, 60%) 0%, hsl(270, 75%, 55%) 100%);
+        box-shadow: 0 6px 20px -3px hsla(255, 75%, 55%, 0.5);
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 2px 10px -3px hsla(255, 75%, 55%, 0.4);
+    }
+
+    &.secondary {
+        color: hsl(255, 80%, 70%);
+        
+        &:hover:not(:disabled) {
+            background: hsla(255, 75%, 55%, 0.15);
+        }
+    }
+
+    &:disabled {
+        background: linear-gradient(135deg, hsl(255, 40%, 40%) 0%, hsl(270, 35%, 35%) 100%);
+        box-shadow: none;
+    }
+}
+
+.text {
+    background: hsla(220, 30%, 25%, 0.8);
+    color: hsl(220, 10%, 90%);
+    border: 1px solid hsla(220, 30%, 40%, 0.3);
+    backdrop-filter: blur(4px);
+    @apply focus:ring-gray-400;
+
+    &:hover:not(:disabled) {
+        background: hsla(220, 30%, 30%, 0.9);
+        border-color: hsla(220, 30%, 50%, 0.4);
+    }
+
+    &.secondary {
+        &:hover:not(:disabled) {
+            background: hsla(220, 30%, 30%, 0.5);
+        }
+    }
+
+    &:disabled {
+        background: hsla(220, 20%, 20%, 0.6);
+    }
+}
+
+.danger {
+    background: linear-gradient(135deg, hsl(0, 70%, 50%) 0%, hsl(350, 65%, 45%) 100%);
+    color: hsl(0, 100%, 98%);
+    box-shadow: 0 4px 15px -3px hsla(0, 70%, 50%, 0.4);
+    @apply focus:ring-red-400;
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(135deg, hsl(0, 75%, 55%) 0%, hsl(350, 70%, 50%) 100%);
+        box-shadow: 0 6px 20px -3px hsla(0, 70%, 50%, 0.5);
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 2px 10px -3px hsla(0, 70%, 50%, 0.4);
+    }
+
+    &.secondary {
+        color: hsl(0, 80%, 70%);
+        
+        &:hover:not(:disabled) {
+            background: hsla(0, 70%, 50%, 0.15);
+        }
+    }
+
+    &:disabled {
+        background: linear-gradient(135deg, hsl(0, 40%, 35%) 0%, hsl(350, 35%, 30%) 100%);
+        box-shadow: none;
+    }
+}
